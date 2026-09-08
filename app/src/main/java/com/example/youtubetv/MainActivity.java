@@ -1,8 +1,8 @@
 package com.example.youtubetv;
 
+import android.content.Intent;
 import android.app.Activity;
 import android.os.Bundle;
-import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
@@ -10,14 +10,13 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        TextView tv = new TextView(this);
-
-        tv.setText(
-            "YouTube TV Player V2\n\nSmartTube UI Migration"
+        startActivity(
+                new Intent(
+                        this,
+                        TvHomeActivity.class
+                )
         );
 
-        tv.setTextSize(28);
-
-        setContentView(tv);
+        finish();
     }
 }
