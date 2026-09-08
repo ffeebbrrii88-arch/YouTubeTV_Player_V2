@@ -17,6 +17,10 @@ public class MainActivity extends Activity {
 
         super.onCreate(savedInstanceState);
 
+        setRequestedOrientation(
+                android.content.pm.ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+        );
+
         startActivity(
                 new Intent(
                         this,
