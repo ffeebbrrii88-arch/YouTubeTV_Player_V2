@@ -41,6 +41,8 @@ public class PlayerActivity extends FragmentActivity {
         String url =
                 getIntent().getStringExtra("video_url");
 
+        url = YouTubeExtractor.getStreamUrl(url);
+
 
         String title =
                 getIntent().getStringExtra("video_title");
