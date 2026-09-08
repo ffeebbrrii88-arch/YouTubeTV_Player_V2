@@ -29,6 +29,10 @@ public class SearchActivity extends FragmentActivity {
 
         super.onCreate(savedInstanceState);
 
+        setRequestedOrientation(
+                android.content.pm.ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+        );
+
 
         LinearLayout layout =
                 new LinearLayout(this);

@@ -19,6 +19,10 @@ public class PlayerActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        setRequestedOrientation(
+                android.content.pm.ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+        );
+
 
         PlayerView playerView =
                 new PlayerView(this);
