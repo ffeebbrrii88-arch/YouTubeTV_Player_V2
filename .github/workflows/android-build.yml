@@ -29,6 +29,10 @@ jobs:
         with:
           gradle-version: 8.5
 
+      - name: Remove Termux AAPT2 override
+        run: |
+          sed -i '/android.aapt2FromMavenOverride/d' gradle.properties || true
+
       - name: Build APK
         run: gradle assembleDebug
 
