@@ -51,5 +51,32 @@ public class BrowseFragment extends BrowseSupportFragment {
 
 
         setAdapter(rowsAdapter);
+
+        setOnItemViewClickedListener(
+                (itemViewHolder, item, rowViewHolder, row) -> {
+
+                    if (item instanceof VideoItem) {
+
+                        android.content.Intent intent =
+                                new android.content.Intent(
+                                        getActivity(),
+                                        PlayerActivity.class
+                                );
+
+                        intent.putExtra(
+                                "video_url",
+                                ((VideoItem)item).url
+                        );
+
+                        intent.putExtra(
+                                "video_title",
+                                ((VideoItem)item).title
+                        );
+
+                        startActivity(intent);
+
+                    }
+                }
+        );
     }
 }

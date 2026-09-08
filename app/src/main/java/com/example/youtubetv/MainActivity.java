@@ -1,3 +1,5 @@
+import com.example.youtubetv.ExtractorInit;
+
 package com.example.youtubetv;
 
 import android.content.Intent;
@@ -8,6 +10,9 @@ public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        ExtractorInit.init();
+
         super.onCreate(savedInstanceState);
 
         startActivity(
