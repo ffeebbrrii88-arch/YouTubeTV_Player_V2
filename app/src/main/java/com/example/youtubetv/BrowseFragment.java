@@ -22,11 +22,12 @@ public class BrowseFragment extends BrowseSupportFragment {
         loadRows();
     }
 
-
     private void loadRows() {
 
         ArrayObjectAdapter rowsAdapter =
-                new ArrayObjectAdapter(new ListRowPresenter());
+                new ArrayObjectAdapter(
+                        new ListRowPresenter()
+                );
 
 
         ArrayObjectAdapter cardAdapter =
@@ -35,27 +36,40 @@ public class BrowseFragment extends BrowseSupportFragment {
                 );
 
 
-        cardAdapter.add("Video Pertama");
-        cardAdapter.add("Video Kedua");
-        cardAdapter.add("Video Ketiga");
-        cardAdapter.add("Video Keempat");
+        for(VideoItem video :
+                YouTubeSearch.search("")) {
+
+            cardAdapter.add(video);
+
+        }
 
 
         HeaderItem header =
-                new HeaderItem(0, "Beranda");
+                new HeaderItem(
+                        0,
+                        "Beranda"
+                );
 
 
         rowsAdapter.add(
-                new ListRow(header, cardAdapter)
+                new ListRow(
+                        header,
+                        cardAdapter
+                )
         );
 
 
         setAdapter(rowsAdapter);
 
+
         setOnItemViewClickedListener(
                 (itemViewHolder, item, rowViewHolder, row) -> {
 
-                    if (item instanceof VideoItem) {
+                    if(item instanceof VideoItem){
+
+                        VideoItem video =
+                                (VideoItem)item;
+
 
                         android.content.Intent intent =
                                 new android.content.Intent(
@@ -63,19 +77,23 @@ public class BrowseFragment extends BrowseSupportFragment {
                                         PlayerActivity.class
                                 );
 
+
                         intent.putExtra(
                                 "video_url",
-                                ((VideoItem)item).url
+                                video.url
                         );
+
 
                         intent.putExtra(
                                 "video_title",
-                                ((VideoItem)item).title
+                                video.title
                         );
+
 
                         startActivity(intent);
 
                     }
+
                 }
         );
     }
