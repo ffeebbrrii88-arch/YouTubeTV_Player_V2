@@ -8,10 +8,14 @@ import androidx.leanback.widget.HeaderItem;
 import androidx.leanback.widget.ListRow;
 import androidx.leanback.widget.ListRowPresenter;
 
+import java.util.List;
+
 public class BrowseFragment extends BrowseSupportFragment {
+
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
+
         super.onActivityCreated(savedInstanceState);
 
         setTitle("YouTube TV Player V2");
@@ -22,7 +26,10 @@ public class BrowseFragment extends BrowseSupportFragment {
         loadRows();
     }
 
+
+
     private void loadRows() {
+
 
         ArrayObjectAdapter rowsAdapter =
                 new ArrayObjectAdapter(
@@ -36,8 +43,13 @@ public class BrowseFragment extends BrowseSupportFragment {
                 );
 
 
-        for(VideoItem video :
-                YouTubeSearch.search("")) {
+        List<VideoItem> videos =
+                YouTubeSearch.search(
+                        "android tv"
+                );
+
+
+        for(VideoItem video : videos){
 
             cardAdapter.add(video);
 
@@ -47,7 +59,7 @@ public class BrowseFragment extends BrowseSupportFragment {
         HeaderItem header =
                 new HeaderItem(
                         0,
-                        "Beranda"
+                        "YouTube"
                 );
 
 
@@ -62,10 +74,13 @@ public class BrowseFragment extends BrowseSupportFragment {
         setAdapter(rowsAdapter);
 
 
+
         setOnItemViewClickedListener(
                 (itemViewHolder, item, rowViewHolder, row) -> {
 
+
                     if(item instanceof VideoItem){
+
 
                         VideoItem video =
                                 (VideoItem)item;

@@ -1,8 +1,24 @@
 package com.example.youtubetv;
 
+import org.schabi.newpipe.extractor.NewPipe;
+
 public class ExtractorInit {
 
+    private static boolean initialized = false;
+
+
     public static void init() {
-        // NewPipe Extractor akan ditambahkan sebagai module nanti
+
+        if(initialized) {
+            return;
+        }
+
+
+        NewPipe.init(
+                new DownloaderImpl()
+        );
+
+
+        initialized = true;
     }
 }
