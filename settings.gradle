@@ -8,6 +8,7 @@ pluginManagement {
 
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+
     repositories {
         google()
         mavenCentral()
@@ -17,3 +18,4 @@ dependencyResolutionManagement {
 rootProject.name="YouTubeTV_Player_V2"
 
 include ':app'
+include ':extractor'
